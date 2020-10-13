@@ -874,7 +874,7 @@ list.
 rotate :: Int -> [a] -> [a]
 rotate a arr
   | a < 0 = []
-  | length arr == 0 = []
+  | null arr = []
   | a >= 0 = drop moda (take (moda + lenarr) (cycle arr))
     where
       lenarr = length arr
