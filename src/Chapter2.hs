@@ -338,6 +338,7 @@ ghci> :l src/Chapter2.hs
 subList :: Int -> Int -> [a] -> [a]
 subList a b arr
   | a < 0 || b < 0 = []
+  | a > b = []
   | a >= 0 && b >= 0 = 
     let an = max 0 a
         bn = max (-1) b
@@ -345,8 +346,6 @@ subList a b arr
         res2 = drop an res1
     in res2
 
-summ :: Int -> Int -> Int
-summ a b = a+b       
 
 {- |
 =⚔️= Task 4
@@ -625,7 +624,7 @@ Implement a function that duplicates each element of the list
 -}
 duplicate :: [a] -> [a]
 duplicate [] = []
-duplicate (x:xs) = x : x : duplicate xs
+duplicate (x:xs) = [x,x] ++ duplicate xs
 
 
 {- |
@@ -768,7 +767,7 @@ the list with only those lists that contain a passed element.
 🕯 HINT: Use the 'elem' function to check whether an element belongs to a list
 -}
 contains :: Int -> [[Int]] -> [[Int]]
-contains n arr = filter (\x -> elem n x) arr
+contains n = filter (\x -> elem n x)
 
 
 {- |
