@@ -1071,7 +1071,7 @@ newtype Gold = Gold { value :: Int}
 
 instance Append Gold where
   append :: Gold -> Gold -> Gold
-  append g1 g2 = Gold((value g1) + (value g2))
+  append g1 g2 = Gold (value g1 + value g2)
 
 instance Append [a] where
   append :: [a] -> [a] -> [a]
