@@ -592,7 +592,7 @@ getPeopleForHouse peopl = case peopl of
 
 sumPeople :: [House] -> Int
 sumPeople [] = 0 
-sumPeople (x : xs) = ( getPeopleForHouse (people x))  + sumPeople(xs)
+sumPeople (x : xs) = getPeopleForHouse (people x) + sumPeople xs
 
 isCastleCity :: IsCastle -> Bool
 isCastleCity isCastle = case isCastle of
